@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="WorkForce Time - Timesheet E2E Flow" enabled="true">
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <stringProp name="TestPlan.comments">End-to-end test: Login → My Timesheet → Calendar Navigation → Enter Hours → Save → Results Tab</stringProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="BASE_URL" elementType="Argument">
+            <stringProp name="Argument.name">BASE_URL</stringProp>
+            <stringProp name="Argument.value">https://rinam-partner-sandbox.wta-us8.wfs.cloud/workforce/Desktop.do</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="USERNAME" elementType="Argument">
+            <stringProp name="Argument.name">USERNAME</stringProp>
+            <stringProp name="Argument.value">twalker</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="PASSWORD" elementType="Argument">
+            <stringProp name="Argument.name">PASSWORD</stringProp>
+            <stringProp name="Argument.value">wipr0123!</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="TIMEOUT" elementType="Argument">
+            <stringProp name="Argument.name">TIMEOUT</stringProp>
+            <stringProp name="Argument.value">30</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </elementProp>
+    </TestPlan>
+    <hashTree>
+      <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager">
+        <collectionProp name="CookieManager.cookies"/>
+        <boolProp name="CookieManager.clearEachIteration">true</boolProp>
+        <boolProp name="CookieManager.controlledByThreadGroup">false</boolProp>
+      </CookieManager>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="browserPath" elementType="Argument">
+            <stringProp name="Argument.name">browserPath</stringProp>
+            <stringProp name="Argument.value">/home/ltuser/lrc/chrome/Google-Chrome-141.0/opt/google/chrome/chrome</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.ChromeDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig" testname="jp@gc - Chrome Driver Config">
+        <boolProp name="WebDriverConfig.acceptinsecurecerts">false</boolProp>
+        <boolProp name="WebDriverConfig.reset_per_iteration">true</boolProp>
+        <stringProp name="WebDriverConfig.driver_path">/home/ltuser/lrc/drivers/chrome/141.0/chromedriver</stringProp>
+        <boolProp name="WebDriverConfig.dev_mode">false</boolProp>
+        <boolProp name="WebDriverConfig.headless">true</boolProp>
+        <boolProp name="WebDriverConfig.maximize_browser">false</boolProp>
+        <stringProp name="ChromeDriverConfig.additional_args">--no-sandbox --disable-dev-shm-usage --disable-notifications</stringProp>
+        <stringProp name="ChromeDriverConfig.binary_path">/home/ltuser/lrc/chrome/Google-Chrome-141.0/opt/google/chrome/chrome</stringProp>
+        <stringProp name="WebDriverConfig.proxy_type">DIRECT</stringProp>
+        <stringProp name="WebDriverConfig.proxy_pac_url"></stringProp>
+        <stringProp name="WebDriverConfig.http_host"></stringProp>
+        <intProp name="WebDriverConfig.http_port">8080</intProp>
+        <boolProp name="WebDriverConfig.use_http_for_all_protocols">true</boolProp>
+        <stringProp name="WebDriverConfig.https_host"></stringProp>
+        <intProp name="WebDriverConfig.https_port">8080</intProp>
+        <stringProp name="WebDriverConfig.ftp_host"></stringProp>
+        <intProp name="WebDriverConfig.ftp_port">8080</intProp>
+        <stringProp name="WebDriverConfig.socks_host"></stringProp>
+        <intProp name="WebDriverConfig.socks_port">8080</intProp>
+        <stringProp name="WebDriverConfig.no_proxy">localhost</stringProp>
+        <stringProp name="WebDriverConfig.custom_capabilites"></stringProp>
+        <boolProp name="WebDriverConfig.use_ftp_proxy">true</boolProp>
+        <boolProp name="WebDriverConfig.use_socks_proxy">true</boolProp>
+      </com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="WorkForce Timesheet User Flow">
+        <intProp name="ThreadGroup.num_threads">1</intProp>
+        <intProp name="ThreadGroup.ramp_time">1</intProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController">
+          <stringProp name="LoopController.loops">1</stringProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+      </ThreadGroup>
+      <hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="WorkForce Timesheet E2E Transaction">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+        </TransactionController>
+        <hashTree>
+          <!-- Step 01 - Open Login Page -->
+          <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="Step 01 - Open Login Page" enabled="true">
+            <stringProp name="WebDriverSampler.defaultContent">
+var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui);
+var wait = new pkg.WebDriverWait(WDS.browser, java.time.Duration.ofSeconds(${TIMEOUT}));
+
+WDS.sampleResult.sampleStart();
+WDS.log.info('Step 01 - Opening login page...');
+
+WDS.browser.get('${BASE_URL}');
+
+wait.until(pkg.ExpectedConditions.presenceOfElementLocated(
+    pkg.By.xpath("//input[@type='text' or @name='username']")
+));
+
+var pageSource = WDS.browser.getPageSource();
+if (pageSource.indexOf('WorkForce') === -1) {
+    WDS.sampleResult.setSuccessful(false);
+    WDS.sampleResult.setResponseMessage('FAIL: Login page did not load correctly');
+} else {
+    WDS.sampleResult.setSuccessful(true);
+    WDS.sampleResult.setResponseMessage('Login page loaded | Title: ' + WDS.browser.getTitle());
+}
+
+WDS.sampleResult.sampleEnd();
+            </stringProp>
+            <stringProp name="WebDriverSampler.language">javascript</stringProp>
+          </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+          <hashTree/>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Think Time - 500ms" enabled="true">
+            <stringProp name="ConstantTimer.delay">500</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+
+          <!-- Step 02 - Enter Username -->
+          <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="Step 02 - Enter Username" enabled="true">
+            <stringProp name="WebDriverSampler.defaultContent">
+var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui);
+var wait = new pkg.WebDriverWait(WDS.browser, java.time.Duration.ofSeconds(${TIMEOUT}));
+
+WDS.sampleResult.sampleStart();
+WDS.log.info('Step 02 - Entering username...');
+
+var usernameField = wait.until(pkg.ExpectedConditions.presenceOfElementLocated(
+    pkg.By.xpath("//label[contains(text(),'User ID')]/following-sibling::input | //input[@name='username'] | //input[@id='username']")
+));
+
+usernameField.clear();
+usernameField.sendKeys('${USERNAME}');
+
+WDS.sampleResult.setSuccessful(true);
+WDS.sampleResult.setResponseMessage('Username entered: ${USERNAME}');
+WDS.sampleResult.sampleEnd();
+            </stringProp>
+            <stringProp name="WebDriverSampler.language">javascript</stringProp>
+          </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+          <hashTree/>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Think Time - 500ms" enabled="true">
+            <stringProp name="ConstantTimer.delay">500</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+
+          <!-- Step 03 - Enter Password -->
+          <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="Step 03 - Enter Password" enabled="true">
+            <stringProp name="WebDriverSampler.defaultContent">
+var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui);
+var wait = new pkg.WebDriverWait(WDS.browser, java.time.Duration.ofSeconds(${TIMEOUT}));
+
+WDS.sampleResult.sampleStart();
+WDS.log.info('Step 03 - Entering password...');
+
+var passwordField = wait.until(pkg.ExpectedConditions.presenceOfElementLocated(
+    pkg.By.xpath("//input[@type='password']")
+));
+
+passwordField.clear();
+passwordField.sendKeys('${PASSWORD}');
+
+WDS.sampleResult.setSuccessful(true);
+WDS.sampleResult.setResponseMessage('Password entered');
+WDS.sampleResult.sampleEnd();
+            </stringProp>
+            <stringProp name="WebDriverSampler.language">javascript</stringProp>
+          </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+          <hashTree/>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Think Time - 500ms" enabled="true">
+            <stringProp name="ConstantTimer.delay">500</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+
+          <!-- Step 04 - Click Login Button -->
+          <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="Step 04 - Click Login Button" enabled="true">
+            <stringProp name="WebDriverSampler.defaultContent">
+var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui);
+var wait = new pkg.WebDriverWait(WDS.browser, java.time.Duration.ofSeconds(${TIMEOUT}));
+
+WDS.sampleResult.sampleStart();
+WDS.log.info('Step 04 - Clicking Login button...');
+
+var loginBtn = wait.until(pkg.ExpectedConditions.elementToBeClickable(
+    pkg.By.xpath("//input[@type='submit' and @value='Log In'] | //button[contains(text(),'Log In')] | //input[@value='Log In']")
+));
+loginBtn.click();
+
+wait.until(pkg.ExpectedConditions.or(
+    pkg.ExpectedConditions.titleContains('Home'),
+    pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.xpath("//*[contains(text(),'Home Screen')]")),
+    pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.xpath("//*[contains(text(),'My Timesheet')]"))
+));
+
+var pageSource = WDS.browser.getPageSource();
+if (pageSource.indexOf('Home') === -1 &amp;&amp; pageSource.indexOf('My Timesheet') === -1) {
+    WDS.sampleResult.setSuccessful(false);
+    WDS.sampleResult.setResponseMessage('FAIL: Login failed - Home Screen not displayed');
+} else {
+    WDS.sampleResult.setSuccessful(true);
+    WDS.sampleResult.setResponseMessage('Login successful | Title: ' + WDS.browser.getTitle());
+}
+
+WDS.sampleResult.sampleEnd();
+            </stringProp>
+            <stringProp name="WebDriverSampler.language">javascript</stringProp>
+          </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+          <hashTree/>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Think Time - 1s" enabled="true">
+            <stringProp name="ConstantTimer.delay">1000</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+
+          <!-- Step 05 - Click My Timesheet -->
+          <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="Step 05 - Click My Timesheet" enabled="true">
+            <stringProp name="WebDriverSampler.defaultContent">
+var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui);
+var wait = new pkg.WebDriverWait(WDS.browser, java.time.Duration.ofSeconds(${TIMEOUT}));
+
+WDS.sampleResult.sampleStart();
+WDS.log.info('Step 05 - Clicking My Timesheet...');
+
+var timesheetLink = wait.until(pkg.ExpectedConditions.elementToBeClickable(
+    pkg.By.xpath("//a[normalize-space(text())='My Timesheet'] | //*[contains(text(),'My Timesheet')]")
+));
+timesheetLink.click();
+
+wait.until(pkg.ExpectedConditions.or(
+    pkg.ExpectedConditions.titleContains('My Time Entry'),
+    pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.xpath("//*[contains(text(),'My Time Entry')]")),
+    pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.xpath("//*[contains(text(),'TIME ENTRY')]"))
+));
+
+var pageSource = WDS.browser.getPageSource();
+if (pageSource.indexOf('Time Entry') === -1 &amp;&amp; pageSource.indexOf('TIME ENTRY') === -1) {
+    WDS.sampleResult.setSuccessful(false);
+    WDS.sampleResult.setResponseMessage('FAIL: My Timesheet page did not load');
+} else {
+    WDS.sampleResult.setSuccessful(true);
+    WDS.sampleResult.setResponseMessage('My Timesheet loaded | Title: ' + WDS.browser.getTitle());
+}
+
+WDS.sampleResult.sampleEnd();
+            </stringProp>
+            <stringProp name="WebDriverSampler.language">javascript</stringProp>
+          </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+          <hashTree/>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Think Time - 1s" enabled="true">
+            <stringProp name="ConstantTimer.delay">1000</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+
+          <!-- Step 06 - Click May 2022 Label (Open Calendar) -->
+          <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="Step 06 - Click May 2022 Calendar Label" enabled="true">
+            <stringProp name="WebDriverSampler.defaultContent">
+var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui);
+var wait = new pkg.WebDriverWait(WDS.browser, java.time.Duration.ofSeconds(${TIMEOUT}));
+
+WDS.sampleResult.sampleStart();
+WDS.log.info('Step 06 - Clicking May 2022 calendar label...');
+
+var calendarLabel = wait.until(pkg.ExpectedConditions.elementToBeClickable(
+    pkg.By.xpath("//*[contains(text(),'May 2022')] | //span[contains(@class,'period') and contains(text(),'2022')]")
+));
+calendarLabel.click();
+
+wait.until(pkg.ExpectedConditions.or(
+    pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.xpath("//*[contains(text(),'TODAY')]")),
+    pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.xpath("//*[contains(text(),'Today')]")),
+    pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.xpath("//*[contains(text(),'MAY 2022')]"))
+));
+
+WDS.sampleResult.setSuccessful(true);
+WDS.sampleResult.setResponseMessage('Calendar popup opened with May 2022');
+WDS.sampleResult.sampleEnd();
+            </stringProp>
+            <stringProp name="WebDriverSampler.language">javascript</stringProp>
+          </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+          <hashTree/>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Think Time - 500ms" enabled="true">
+            <stringProp name="ConstantTimer.delay">500</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+
+          <!-- Step 07 - Click Today Button in Calendar -->
+          <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="Step 07 - Click Today Button" enabled="true">
+            <stringProp name="WebDriverSampler.defaultContent">
+var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui);
+var wait = new pkg.WebDriverWait(WDS.browser, java.time.Duration.ofSeconds(${TIMEOUT}));
+
+WDS.sampleResult.sampleStart();
+WDS.log.info('Step 07 - Clicking Today button in calendar...');
+
+var todayBtn = wait.until(pkg.ExpectedConditions.elementToBeClickable(
+    pkg.By.xpath("//*[normalize-space(text())='TODAY'] | //*[normalize-space(text())='Today'] | //a[contains(@class,'today')]")
+));
+todayBtn.click();
+
+java.lang.Thread.sleep(1000);
+
+wait.until(pkg.ExpectedConditions.presenceOfElementLocated(
+    pkg.By.xpath("//*[contains(text(),'TIME ENTRY')] | //*[contains(text(),'Time Entry')]")
+));
+
+WDS.sampleResult.setSuccessful(true);
+WDS.sampleResult.setResponseMessage('Calendar navigated to Today | Title: ' + WDS.browser.getTitle());
+WDS.sampleResult.sampleEnd();
+            </stringProp>
+            <stringProp name="WebDriverSampler.language">javascript</stringProp>
+          </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+          <hashTree/>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Think Time - 1s" enabled="true">
+            <stringProp name="ConstantTimer.delay">1000</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+
+          <!-- Step 08 - Enter Hours -->
+          <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="Step 08 - Enter 8 Hours" enabled="true">
+            <stringProp name="WebDriverSampler.defaultContent">
+var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui);
+var wait = new pkg.WebDriverWait(WDS.browser, java.time.Duration.ofSeconds(${TIMEOUT}));
+
+WDS.sampleResult.sampleStart();
+WDS.log.info('Step 08 - Entering 8 in hours input field...');
+
+var hoursInput = wait.until(pkg.ExpectedConditions.elementToBeClickable(
+    pkg.By.xpath("//input[contains(@class,'hours') or contains(@name,'hours') or contains(@id,'hours')] | //td[contains(@class,'hours')]//input | //input[@type='text'][contains(@class,'time')]")
+));
+
+hoursInput.clear();
+hoursInput.sendKeys('8');
+
+WDS.sampleResult.setSuccessful(true);
+WDS.sampleResult.setResponseMessage('Entered 8 in hours field');
+WDS.sampleResult.sampleEnd();
+            </stringProp>
+            <stringProp name="WebDriverSampler.language">javascript</stringProp>
+          </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+          <hashTree/>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Think Time - 500ms" enabled="true">
+            <stringProp name="ConstantTimer.delay">500</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+
+          <!-- Step 09 - Click Save Button -->
+          <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="Step 09 - Click Save Button" enabled="true">
+            <stringProp name="WebDriverSampler.defaultContent">
+var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui);
+var wait = new pkg.WebDriverWait(WDS.browser, java.time.Duration.ofSeconds(${TIMEOUT}));
+
+WDS.sampleResult.sampleStart();
+WDS.log.info('Step 09 - Clicking Save button...');
+
+var saveBtn = wait.until(pkg.ExpectedConditions.elementToBeClickable(
+    pkg.By.xpath("//input[@value='SAVE'] | //button[normalize-space(text())='SAVE'] | //a[normalize-space(text())='SAVE'] | //*[contains(@class,'save') and contains(text(),'SAVE')]")
+));
+saveBtn.click();
+
+wait.until(pkg.ExpectedConditions.or(
+    pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.xpath("//*[contains(text(),'Data saved')]")),
+    pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.xpath("//*[contains(text(),'saved')]")),
+    pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.xpath("//*[contains(text(),'Saved')]"))
+));
+
+var pageSource = WDS.browser.getPageSource().toLowerCase();
+if (pageSource.indexOf('saved') === -1) {
+    WDS.sampleResult.setSuccessful(false);
+    WDS.sampleResult.setResponseMessage('FAIL: Save confirmation not displayed');
+} else {
+    WDS.sampleResult.setSuccessful(true);
+    WDS.sampleResult.setResponseMessage('Data saved successfully');
+}
+
+WDS.sampleResult.sampleEnd();
+            </stringProp>
+            <stringProp name="WebDriverSampler.language">javascript</stringProp>
+          </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+          <hashTree/>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Think Time - 1s" enabled="true">
+            <stringProp name="ConstantTimer.delay">1000</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+
+          <!-- Step 10 - Click Results Tab -->
+          <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="Step 10 - Click Results Tab" enabled="true">
+            <stringProp name="WebDriverSampler.defaultContent">
+var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui);
+var wait = new pkg.WebDriverWait(WDS.browser, java.time.Duration.ofSeconds(${TIMEOUT}));
+
+WDS.sampleResult.sampleStart();
+WDS.log.info('Step 10 - Clicking Results tab...');
+
+var resultsTab = wait.until(pkg.ExpectedConditions.elementToBeClickable(
+    pkg.By.xpath("//a[normalize-space(text())='RESULTS'] | //li[normalize-space(text())='RESULTS'] | //*[contains(@class,'tab') and contains(text(),'RESULTS')] | //*[normalize-space(text())='Results' or normalize-space(text())='RESULTS']")
+));
+resultsTab.click();
+
+wait.until(pkg.ExpectedConditions.or(
+    pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.xpath("//*[contains(text(),'Pay Code')]")),
+    pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.xpath("//*[contains(text(),'Regular')]")),
+    pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.xpath("//*[contains(text(),'Total')]"))
+));
+
+var pageSource = WDS.browser.getPageSource();
+if (pageSource.indexOf('Regular') === -1 &amp;&amp; pageSource.indexOf('Pay Code') === -1) {
+    WDS.sampleResult.setSuccessful(false);
+    WDS.sampleResult.setResponseMessage('FAIL: Results tab content did not load');
+} else {
+    WDS.sampleResult.setSuccessful(true);
+    WDS.sampleResult.setResponseMessage('Results tab loaded successfully');
+}
+
+WDS.sampleResult.sampleEnd();
+            </stringProp>
+            <stringProp name="WebDriverSampler.language">javascript</stringProp>
+          </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
